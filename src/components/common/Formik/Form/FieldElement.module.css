@@ -1,0 +1,17 @@
+.error input,
+.error textarea,
+span.summaryError {
+  border-color: red;
+}
+
+.error span,
+span.summaryError {
+  color: red;
+}
+
+span.summaryError {
+  padding: 5px;
+  border-width: 2px;
+  border-style: solid;
+  display: inline-block;
+}
