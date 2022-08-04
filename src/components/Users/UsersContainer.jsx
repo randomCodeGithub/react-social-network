@@ -14,7 +14,15 @@ import Preloader from "../common/Preloader/Preloader";
 import { usersAPI } from "../../api/api";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
-import { getUsers, getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getUsersTotalCount } from "../../redux/users-selectors";
+import {
+  getUsers,
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsFetching,
+  getPageSize,
+  getUsersTotalCount,
+  getUsersSuperSelector,
+} from "../../redux/users-selectors";
 // import UsersAPIComponent from "./UsersC";
 
 class UsersAPIComponent extends React.Component {
@@ -136,5 +144,6 @@ export default compose(
     unfollow,
     setCurrentPage,
     setTotalUsersCount,
-    requestUsers})
+    requestUsers,
+  })
 )(UsersAPIComponent);
