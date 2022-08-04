@@ -66,7 +66,7 @@ export const getUsers = (currentPage = 1, pageSize = 10) => {
     });
 };
 
-// export const getUsers2 = (currentPage = 1, pageSize = 10) => {
+// export const getUsers = (currentPage = 1, pageSize = 10) => {
 //   return instance.get(baseUrl + `follow/${u.id}`).then((response) => {
 //     return response.data;
 //   });
