@@ -12,7 +12,8 @@ import { Textarea } from "../../common/FormsControls/FormsControls";
 import FormikController from "../../common/Formik/FormikController";
 import FieldElement from "../../common/Formik/Form/FieldElement";
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
+  console.log("RENDER")
   // let postData = [
   //   { id: 1, message: "hi there", likesCount: 14 },
   //   { id: 2, message: "hi bro", likesCount: 3 },
@@ -49,7 +50,7 @@ const MyPosts = (props) => {
       </div>
     </div>
   );
-};
+});
 
 const validationSchemaForm = Yup.object().shape({
   newPostBody: Yup.string()
