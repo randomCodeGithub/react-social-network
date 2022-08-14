@@ -18,6 +18,7 @@ class ProfileStatus extends React.Component {
     this.setState({
       editMode: false,
     });
+    //Ниже временно закомментированы из-за ограничения на кол-во запросов
     // this.props.updateStatus(this.state.status);
   };
 
