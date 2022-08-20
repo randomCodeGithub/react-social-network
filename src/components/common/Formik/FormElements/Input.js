@@ -1,8 +1,9 @@
-
 const Input = (props) => {
+  const { text, ...rest } = props;
   return (
     <div>
-      <input {...props} />
+      <input {...rest} />
+      {text && <label htmlFor={props.name}> {text} </label>}
     </div>
   );
 };

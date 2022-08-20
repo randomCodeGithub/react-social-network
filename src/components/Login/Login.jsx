@@ -1,11 +1,11 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FieldElement from "../common/Formik/Form/FieldElement";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Redirect } from "react-router-dom";
-import styles from "../common/Formik/Form/FieldElement.module.css"
+import styles from "../common/Formik/Form/FieldElement.module.css";
 
 const validateLoginForm = (values) => {
   const errors = {};
@@ -26,7 +26,7 @@ const validationSchemaLoginForm = Yup.object().shape({
   email: Yup.string().email("Invalid email address").required("Required email"),
 });
 
-const LoginForm = (props) => {
+const LoginForm = ({ login }) => {
   return (
     <div>
       <Formik
@@ -37,42 +37,40 @@ const LoginForm = (props) => {
         }}
         // validate={validateLoginForm}
         validationSchema={validationSchemaLoginForm}
-        onSubmit={(values,  { setSubmitting, setStatus }) => {
-          props.login(values.email, values.password, values.rememberMe, setStatus);
+        onSubmit={(values, { setSubmitting, setStatus }) => {
+          login(values.email, values.password, values.rememberMe, setStatus);
           setSubmitting(false);
         }}
       >
         {({ errors, touched, isValid, dirty, status }) => (
           <Form>
             {status && <span className={styles.summaryError}>{status}</span>}
-            <div>
               <FieldElement
                 fieldType="input"
                 type={"email"}
                 name={"email"}
                 placeholder={"e-mail"}
               />
-            </div>
 
-            <div>
+
               <FieldElement
                 fieldType="input"
                 name={"password"}
                 type={"password"}
                 placeholder={"password"}
               />
-            </div>
 
-            <div>
+
               <FieldElement
                 fieldType="input"
                 name={"rememberMe"}
                 type="checkbox"
                 id="rememberMe"
+                text="remember me"
               />
 
-              <label htmlFor={"rememberMe"}> remember me </label>
-            </div>
+              {/* <label htmlFor={"rememberMe"}> remember me </label> */}
+
 
             <button type={"submit"}>Login</button>
           </Form>
@@ -96,7 +94,7 @@ const Login = (props) => {
 };
 
 const mapStateToProsp = (state) => ({
-  isAuth: state.auth.isAuth
-})
+  isAuth: state.auth.isAuth,
+});
 
 export default connect(mapStateToProsp, { login })(Login);

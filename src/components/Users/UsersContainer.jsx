@@ -27,7 +27,8 @@ import {
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
-    this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+    const { currentPage, pageSize } = this.props;
+    this.props.requestUsers(currentPage, pageSize);
     // this.props.toggleIsFetching(true);
 
     // usersAPI
@@ -40,7 +41,8 @@ class UsersAPIComponent extends React.Component {
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.requestUsers(pageNumber, this.props.pageSize);
+    const {pageSize} = this.props;
+    this.props.requestUsers(pageNumber, pageSize);
     // this.props.setCurrentPage(pageNumber);
     // this.props.toggleIsFetching(true);
     // usersAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
