@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/react-social-network/static/css/main.b1eef609.chunk.css",
+    "main.js": "/react-social-network/static/js/main.e76eb836.chunk.js",
+    "main.js.map": "/react-social-network/static/js/main.e76eb836.chunk.js.map",
+    "runtime-main.js": "/react-social-network/static/js/runtime-main.44d61c02.js",
+    "runtime-main.js.map": "/react-social-network/static/js/runtime-main.44d61c02.js.map",
+    "static/js/2.5dfc77cf.chunk.js": "/react-social-network/static/js/2.5dfc77cf.chunk.js",
+    "static/js/2.5dfc77cf.chunk.js.map": "/react-social-network/static/js/2.5dfc77cf.chunk.js.map",
+    "static/css/3.452b7bb8.chunk.css": "/react-social-network/static/css/3.452b7bb8.chunk.css",
+    "static/js/3.d655ba7a.chunk.js": "/react-social-network/static/js/3.d655ba7a.chunk.js",
+    "static/js/3.d655ba7a.chunk.js.map": "/react-social-network/static/js/3.d655ba7a.chunk.js.map",
+    "static/css/4.0103e462.chunk.css": "/react-social-network/static/css/4.0103e462.chunk.css",
+    "static/js/4.9c37864f.chunk.js": "/react-social-network/static/js/4.9c37864f.chunk.js",
+    "static/js/4.9c37864f.chunk.js.map": "/react-social-network/static/js/4.9c37864f.chunk.js.map",
+    "static/js/5.f4c4e732.chunk.js": "/react-social-network/static/js/5.f4c4e732.chunk.js",
+    "static/js/5.f4c4e732.chunk.js.map": "/react-social-network/static/js/5.f4c4e732.chunk.js.map",
+    "index.html": "/react-social-network/index.html",
+    "static/css/3.452b7bb8.chunk.css.map": "/react-social-network/static/css/3.452b7bb8.chunk.css.map",
+    "static/css/4.0103e462.chunk.css.map": "/react-social-network/static/css/4.0103e462.chunk.css.map",
+    "static/css/main.b1eef609.chunk.css.map": "/react-social-network/static/css/main.b1eef609.chunk.css.map",
+    "static/js/2.5dfc77cf.chunk.js.LICENSE.txt": "/react-social-network/static/js/2.5dfc77cf.chunk.js.LICENSE.txt",
+    "static/media/avatar_default.2543daec.webp": "/react-social-network/static/media/avatar_default.2543daec.webp",
+    "static/media/preloader.793c2c3c.svg": "/react-social-network/static/media/preloader.793c2c3c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.44d61c02.js",
+    "static/js/2.5dfc77cf.chunk.js",
+    "static/css/main.b1eef609.chunk.css",
+    "static/js/main.e76eb836.chunk.js"
+  ]
+}
