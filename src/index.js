@@ -3,35 +3,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-// import { renderEntireTree } from "./render";
-// import { addPost, updatePostText } from "./redux/state";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/redux-store";
 import { Provider } from "react-redux";
-// addPost('hahahhaha');
-
-// let postData = [
-//   { id: 1, message: "ETA NE RABOTAETsdsd?", likesCount: 229 },
-//   { id: 2, message: "DA ja napisal govnokod!", likesCount: 3000 },
-// ];
-
-// let dialogs = [
-//   { id: 1, name: "Artur" },
-//   { id: 2, name: "Edgar" },
-//   { id: 3, name: "Vadim" },
-// ];
-// let messages = [
-//   { id: 1, message: "Hi" },
-//   { id: 2, message: "How are you?" },
-//   { id: 3, message: "Bye!11" },
-// ];
+import SamuraiJSApp from "./App";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>,
+  // <BrowserRouter>
+  //   <Provider store={store}>
+  //     <App />
+  //   </Provider>
+  // </BrowserRouter>
+  <SamuraiJSApp />,
   document.getElementById("root")
 );
 
