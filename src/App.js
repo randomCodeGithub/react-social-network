@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import { BrowserRouter, Route, withRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, withRouter } from "react-router-dom";
 import "./App.css";
 // import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -42,12 +42,7 @@ class App extends Component {
             <Route path="/music" component={Music} />
             <Route path="/settings" component={Settings} />
 
-            <Route
-              path="/dialogs"
-              render={() => {
-                <DialogsContainer />;
-              }}
-            />
+            <Route path="/dialogs" render={() => <DialogsContainer />} />
             <Route
               path="/profile/:userId?"
               render={() => <ProfileContainer />}
@@ -72,11 +67,11 @@ let AppContainer = compose(
 
 const SamuraiJSApp = (props) => {
   return (
-    <BrowserRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
