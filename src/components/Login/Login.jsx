@@ -19,14 +19,26 @@ const validateLoginForm = (values) => {
   return errors;
 };
 
-const validationSchemaLoginForm = Yup.object().shape({
-  password: Yup.string()
-    .min(2, "Must be longer than 2 characters")
-    .required("Required 2"),
-  email: Yup.string().email("Invalid email address").required("Required email"),
-});
+// const validationSchemaLoginForm = Yup.object().shape({
+//   password: Yup.string()
+//     .min(2, "Must be longer than 2 characters")
+//     .required("Required 2"),
+//   email: Yup.string().email("Invalid email address").required("Required email"),
+//   // captcha: Yup.string().required("Required captcha"),
+// });
 
-const LoginForm = ({ login }) => {
+const LoginForm = ({ login, captchaUrl }) => {
+  const validationSchemaLoginForm = Yup.object().shape({
+    password: Yup.string()
+      .min(2, "Must be longer than 2 characters")
+      .required("Required password"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Required email"),
+    captcha: captchaUrl
+      ? Yup.string().required("Required captcha")
+      : Yup.string(),
+  });
   return (
     <div>
       <Formik
@@ -34,44 +46,55 @@ const LoginForm = ({ login }) => {
           email: "",
           password: "",
           rememberMe: false,
+          captcha: "",
         }}
         // validate={validateLoginForm}
         validationSchema={validationSchemaLoginForm}
         onSubmit={(values, { setSubmitting, setStatus }) => {
-          login(values.email, values.password, values.rememberMe, setStatus);
+          login(
+            values.email,
+            values.password,
+            values.rememberMe,
+            values.captcha,
+            setStatus
+          );
           setSubmitting(false);
         }}
       >
         {({ errors, touched, isValid, dirty, status }) => (
           <Form>
             {status && <span className={styles.summaryError}>{status}</span>}
+            <FieldElement
+              fieldType="input"
+              type={"email"}
+              name={"email"}
+              placeholder={"e-mail"}
+            />
+
+            <FieldElement
+              fieldType="input"
+              name={"password"}
+              type={"password"}
+              placeholder={"password"}
+            />
+            <FieldElement
+              fieldType="input"
+              name={"rememberMe"}
+              type="checkbox"
+              id="rememberMe"
+              text="remember me"
+            />
+
+            {/* <label htmlFor={"rememberMe"}> remember me </label> */}
+            {captchaUrl && <img src={captchaUrl} />}
+            {captchaUrl && (
               <FieldElement
                 fieldType="input"
-                type={"email"}
-                name={"email"}
-                placeholder={"e-mail"}
+                name={"captcha"}
+                type={"input"}
+                placeholder={"Symbold from image"}
               />
-
-
-              <FieldElement
-                fieldType="input"
-                name={"password"}
-                type={"password"}
-                placeholder={"password"}
-              />
-
-
-              <FieldElement
-                fieldType="input"
-                name={"rememberMe"}
-                type="checkbox"
-                id="rememberMe"
-                text="remember me"
-              />
-
-              {/* <label htmlFor={"rememberMe"}> remember me </label> */}
-
-
+            )}
             <button type={"submit"}>Login</button>
           </Form>
         )}
@@ -87,13 +110,14 @@ const Login = (props) => {
     return (
       <div>
         <h1>Login</h1>
-        <LoginForm {...props} />
+        <LoginForm {...props} captchaUrl={props.captchaUrl} />
       </div>
     );
   }
 };
 
 const mapStateToProsp = (state) => ({
+  captchaUrl: state.auth.captchaUrl,
   isAuth: state.auth.isAuth,
 });
 

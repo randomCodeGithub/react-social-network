@@ -26,4 +26,15 @@ const FieldElementComponent = ({
   );
 };
 
+// export const createField = (fieldType, name, placeholder, props) => {
+//   return (
+//     <FieldElement
+//       fieldType={fieldType}
+//       name={name}
+//       placeholder={placeholder}
+//       {...props}
+//     />
+//   );
+// };
+
 export default FieldElement;

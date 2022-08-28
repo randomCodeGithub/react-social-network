@@ -24,7 +24,7 @@ const MyPosts = React.memo(props => {
   // ));
 
   let postsElements = props.posts.map((post) => (
-    <Post message={post.message} likeCount={post.likesCount} />
+    <Post key={post.id} message={post.message} likeCount={post.likesCount} />
   ));
 
   let newPostElement = React.createRef();
