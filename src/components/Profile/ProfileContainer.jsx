@@ -9,14 +9,16 @@ import {
   savePhoto,
   saveProfile
 } from "../../redux/profile-reducer";
-import { Redirect, withRouter } from "react-router";
+// import { Redirect, withRouter } from "react-router";
+import { Redirect } from "react-router";
 import { usersAPI } from "../../api/api";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
+import { withRouter } from "../../hoc/withRouter";
 
 class ProfileContainer extends React.Component {
   refreshProfile = () => {
-    let userId = this.props.match.params.userId;
+    let userId = this.props.router.params.userId;
     if (!userId) {
       userId = this.props.authorizedUserId;
     }
@@ -48,7 +50,7 @@ class ProfileContainer extends React.Component {
   };
 
   componentDidUpdate = (prevProps) => {
-    if (this.props.match.params.userId != prevProps.match.params.userId) {
+    if (this.props.router.params.userId != prevProps.router.params.userId) {
       this.refreshProfile();
     }
   };
@@ -56,7 +58,7 @@ class ProfileContainer extends React.Component {
   render() {
     return (
       <Profile
-        isOwner={!this.props.match.params.userId}
+        isOwner={!this.props.router.params.userId}
         {...this.props}
         profile={this.props.profile}
         status={this.props.status}

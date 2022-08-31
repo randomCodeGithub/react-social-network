@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import FieldElement from "../common/Formik/Form/FieldElement";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
-import { Redirect } from "react-router-dom";
+import { Navigate, Redirect } from "react-router-dom";
 import styles from "../common/Formik/Form/FieldElement.module.css";
 
 const validateLoginForm = (values) => {
@@ -105,7 +105,7 @@ const LoginForm = ({ login, captchaUrl }) => {
 
 const Login = (props) => {
   if (props.isAuth) {
-    return <Redirect to="/profile" />;
+    return <Navigate to="/profile" />;
   } else {
     return (
       <div>
